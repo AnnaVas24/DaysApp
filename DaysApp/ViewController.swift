@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         numberOfDays = days.day ?? 0
     }
     
-    @IBAction func resultButtonPressed(_ sender: UIButton) {
+    @IBAction func resultButtonPressed() {
         infoLabel.text = "You have enjoyed your life for \(numberOfDays) days"
     }
     
