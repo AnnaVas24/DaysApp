@@ -11,21 +11,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var infoLabel: UILabel!
     
-    private var numberOfDays = 0
+    private var numberOfDays = ""
    
     
     @IBAction func datePicker(_ sender: UIDatePicker) {
-        let calendar = Calendar.current
-        
-        let currentDate = calendar.startOfDay(for: Date.now)
-        let dateOfBirth = calendar.startOfDay(for: sender.date)
-        
-        let days = calendar.dateComponents([.day], from: dateOfBirth, to: currentDate)
-        numberOfDays = days.day ?? 0
+        let range = sender.date..<Date.now
+        numberOfDays = range.formatted(.components(style: .wide, fields: [.day]))
     }
     
     @IBAction func resultButtonPressed() {
-        infoLabel.text = "You have enjoyed your life for \(numberOfDays) days"
+        infoLabel.text = "Вы наслаждались жизнью \(numberOfDays)"
     }
     
 }
